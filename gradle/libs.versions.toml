@@ -8,8 +8,8 @@ kotlin-coroutines = "1.10.1"
 logback = "1.5.16"
 dagger = "2.55"
 protobuf = "4.29.3"
-androidx-room = "2.7.0-alpha11"
-androidx-sqlite = "2.5.0-alpha12"
+androidx-room = "2.7.0-beta01"
+androidx-sqlite = "2.5.0-beta01"
 
 [libraries]
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "androidx-room" }
