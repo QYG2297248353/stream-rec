@@ -1,9 +1,9 @@
 [versions]
-ktor = "3.2.0"
+ktor = "3.2.2"
 ktor-test = "2.3.13"
 ksp = "2.2.0-2.0.2"
 kotlin = "2.2.0"
-kotlin-atomicfu = "0.28.0"
+kotlin-atomicfu = "0.29.0"
 kotlin-coroutines = "1.10.2"
 logback = "1.5.18"
 dagger = "2.56.2"
@@ -52,7 +52,7 @@ io-ktor-server-websockets-jvm = { module = "io.ktor:ktor-server-websockets-jvm",
 io-ktor-server-netty-jvm = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
 io-ktor-server-tests-jvm = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "ktor-test" }
 
-io-kotest-kotest-runner-junit5 = "io.kotest:kotest-runner-junit5:6.0.0.M4"
+io-kotest-kotest-runner-junit5 = "io.kotest:kotest-runner-junit5:6.0.0.M5"
 
 io-lindstrom-m3u8-parser = "io.lindstrom:m3u8-parser:0.30"
 
@@ -76,9 +76,9 @@ org-jetbrains-kotlinx-datetime = "org.jetbrains.kotlinx:kotlinx-datetime:0.6.2"
 org-jetbrains-kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
 org-jetbrains-kotlinx-coroutines-debug = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-debug", version.ref = "kotlin-coroutines" }
 org-jetbrains-kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlin-coroutines" }
-org-jetbrains-kotlinx-serialization-json = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.1"
-org-jetbrains-kotlinx-serialization-core = "org.jetbrains.kotlinx:kotlinx-serialization-core:1.8.1"
-org-jetbrains-kotlinx-serialization-protobuf = "org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.8.1"
+org-jetbrains-kotlinx-serialization-json = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0"
+org-jetbrains-kotlinx-serialization-core = "org.jetbrains.kotlinx:kotlinx-serialization-core:1.9.0"
+org-jetbrains-kotlinx-serialization-protobuf = "org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.9.0"
 org-openjdk-nashorn-nashorn-core = "org.openjdk.nashorn:nashorn-core:15.6"
 
 org-junit-jupiter-junit-jupiter = "org.junit.jupiter:junit-jupiter:5.13.3"
