@@ -1,5 +1,5 @@
 [versions]
-ktor = "3.2.2"
+ktor = "3.2.3"
 ktor-test = "2.3.13"
 ksp = "2.2.0-2.0.2"
 kotlin = "2.2.0"
@@ -52,7 +52,7 @@ io-ktor-server-websockets-jvm = { module = "io.ktor:ktor-server-websockets-jvm",
 io-ktor-server-netty-jvm = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
 io-ktor-server-tests-jvm = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "ktor-test" }
 
-io-kotest-kotest-runner-junit5 = "io.kotest:kotest-runner-junit5:6.0.0.M5"
+io-kotest-kotest-runner-junit5 = "io.kotest:kotest-runner-junit5:6.0.0.M8"
 
 io-lindstrom-m3u8-parser = "io.lindstrom:m3u8-parser:0.30"
 
@@ -81,7 +81,7 @@ org-jetbrains-kotlinx-serialization-core = "org.jetbrains.kotlinx:kotlinx-serial
 org-jetbrains-kotlinx-serialization-protobuf = "org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.9.0"
 org-openjdk-nashorn-nashorn-core = "org.openjdk.nashorn:nashorn-core:15.6"
 
-org-junit-jupiter-junit-jupiter = "org.junit.jupiter:junit-jupiter:5.13.3"
+org-junit-jupiter-junit-jupiter = "org.junit.jupiter:junit-jupiter:5.13.4"
 
 org-mockito-mockito-core = "org.mockito:mockito-core:5.18.0"
 
