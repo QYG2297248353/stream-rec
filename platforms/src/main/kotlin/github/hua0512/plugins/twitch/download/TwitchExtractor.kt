@@ -85,18 +85,17 @@ class TwitchExtractor(http: HttpClient, json: Json, override val url: String) : 
     val queries = arrayOf(
       buildPersistedQueryRequest(
         "ChannelShell",
-        "c3ea5a669ec074a58df5c11ce3c27093fa38534c94286dc14b68a25d5adcbf55",
+        "fea4573a7bf2644f5b3f2cbbdcbee0d17312e48d2e55f080589d053aad353f11",
         buildJsonObject {
           put("login", id)
-          put("lcpVideosEnabled", false)
         }
       ),
       buildPersistedQueryRequest(
         "StreamMetadata",
-        "059c4653b788f5bdb2f5a2d2a24b0ddc3831a15079001a3d927556a96fb0517f",
+        "b57f9b910f8cd1a4659d894fe7550ccc81ec9052c01e438b290fd66a040b9b93",
         buildJsonObject {
           put("channelLogin", id)
-          put("previewImageURL", "")
+          put("includeIsDJ", true)
         }
       ),
     )
@@ -108,7 +107,7 @@ class TwitchExtractor(http: HttpClient, json: Json, override val url: String) : 
     if (apiResult.isErr) {
       return apiResult.asErr()
     }
-    val response = apiResult.value
+    val response = apiResult.get()!!
     val data =
       response.jsonArray[1].jsonObject["data"]?.jsonObject
         ?: return Err(ExtractorError.InvalidResponse("($id) failed to get stream metadata, response: $response"))
@@ -135,7 +134,7 @@ class TwitchExtractor(http: HttpClient, json: Json, override val url: String) : 
     }
     var mediaInfo = MediaInfo(url, "", id, "", "")
 
-    val live = liveResult.value
+    val live = liveResult.get()!!
     if (!live) {
       return Ok(mediaInfo)
     }
@@ -158,7 +157,7 @@ class TwitchExtractor(http: HttpClient, json: Json, override val url: String) : 
       json,
       buildPersistedQueryRequest(
         "PlaybackAccessToken",
-        "0828119ded1c13477966434e15800ff57ddacf13ba1911c129dc2200705b0712",
+        "ed230aa1e33e07eebb8928504583da78a5173989fadfb1ac94be06a04f3cdbe9",
         buildJsonObject {
           put("isLive", true)
           put("login", id)
@@ -167,6 +166,7 @@ class TwitchExtractor(http: HttpClient, json: Json, override val url: String) : 
           put("playerType", "site")
           put("isClip", false)
           put("clipID", "")
+          put("platform", "site")
         }),
       getRequestHeaders()
     )
@@ -174,7 +174,7 @@ class TwitchExtractor(http: HttpClient, json: Json, override val url: String) : 
     if (accessTokenApiResult.isErr) {
       return accessTokenApiResult.asErr()
     }
-    val accessTokenResponse = accessTokenApiResult.value
+    val accessTokenResponse = accessTokenApiResult.get()!!
 
     val accessToken = accessTokenResponse.jsonObject["data"]?.jsonObject?.get("streamPlaybackAccessToken")?.jsonObject
       ?: return Err(ExtractorError.InvalidResponse("($id) failed to get stream playback access token, response: $accessTokenResponse"))
@@ -194,12 +194,12 @@ class TwitchExtractor(http: HttpClient, json: Json, override val url: String) : 
     }
     if (resp.isErr) return resp.asErr()
 
-    val hlsString = resp.value.bodyAsText()
+    val hlsString = resp.get()!!.bodyAsText()
     val parseResult = parseHlsPlaylist(hlsString)
     if (parseResult.isErr) {
       return parseResult.asErr()
     }
-    val streams = parseResult.value
+    val streams = parseResult.get()!!
     mediaInfo = mediaInfo.copy(artistImageUrl = artistProfileUrl, title = title, live = true, streams = streams)
     return Ok(mediaInfo)
   }
