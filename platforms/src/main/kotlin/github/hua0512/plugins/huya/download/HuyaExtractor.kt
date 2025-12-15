@@ -46,9 +46,9 @@ import io.ktor.client.statement.*
 import io.ktor.http.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import kotlin.time.Instant
 import kotlinx.serialization.json.*
 import kotlin.random.Random
+import kotlin.time.Instant
 
 /**
  * Huya live stream extractor
@@ -83,11 +83,11 @@ open class HuyaExtractor(override val http: HttpClient, override val json: Json,
     internal val HYSDK_UA: String
       get() {
         /**
-         * Date: 2025-11-21
+         * Date: 2025-12-15
          * UA string from the latest Huya Windows app
          * THIS UA IS VALID ONLY FOR WUP REQUESTS
          */
-        return "HYSDK(Windows, 30000002)_APP(pc_exe&7040102&official)_SDK(trans&2.30.0.5556)"
+        return "HYSDK(Windows, 30000002)_APP(pc_exe&7050007&official)_SDK(trans&2.31.0.5636)"
       }
 
     internal val requestHeaders = arrayOf(
