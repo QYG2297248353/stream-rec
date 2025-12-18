@@ -83,11 +83,18 @@ open class HuyaExtractor(override val http: HttpClient, override val json: Json,
     internal val HYSDK_UA: String
       get() {
         /**
-         * Date: 2025-12-15
+         * Date: 2025-12-18
          * UA string from the latest Huya Windows app
          * THIS UA IS VALID ONLY FOR WUP REQUESTS
+         *
+         *
+         * TEMPORAL FIX:
+         * 7050007 versions and above requires extra auth.
+         *
+         * LATEST UA:
+         * HYSDK(Windows, 30000002)_APP(pc_exe&7060000&official)_SDK(trans&2.32.3.5646)
          */
-        return "HYSDK(Windows, 30000002)_APP(pc_exe&7050007&official)_SDK(trans&2.31.0.5636)"
+        return "HYSDK(Windows,30000002)_APP(pc_exe&7030003&official)_SDK(trans&2.29.0.5493)"
       }
 
     internal val requestHeaders = arrayOf(
